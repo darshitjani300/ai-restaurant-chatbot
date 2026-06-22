@@ -34,14 +34,14 @@ const Reviews = () => {
             Guest Reviews
           </h4>
           <h2
-            className="text-4xl md:text-5xl text-brand-dark mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4"
           >
             What people are saying
           </h2>
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {reviews.map((review) => (
             <div
               key={review.id}
@@ -64,7 +64,7 @@ const Reviews = () => {
 
                 {/* Review Text */}
                 <p
-                  className="text-brand-dark text-xl italic leading-snug mb-6"
+                  className="text-brand-dark text-lg sm:text-xl italic leading-snug mb-6"
                 >
                   {review.text}
                 </p>

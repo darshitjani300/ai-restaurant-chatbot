@@ -84,7 +84,7 @@ const Menu = () => {
             Our Menu
           </h4>
           <h2
-            className="text-4xl md:text-5xl text-brand-dark mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl text-brand-dark mb-4"
           >
             Crafted with tradition
           </h2>
@@ -99,7 +99,7 @@ const Menu = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
+              className={`px-4 sm:px-6 py-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors cursor-pointer ${
                 activeCategory === category
                   ? "bg-brand-dark text-white"
                   : "bg-transparent border border-gray-200 text-brand-gray hover:border-gray-300"
@@ -111,46 +111,50 @@ const Menu = () => {
         </div>
 
         {/* Menu Grid */}
-        <div className="bg-gray-200 gap-px grid grid-cols-1 lg:grid-cols-2 border border-gray-200 rounded-sm overflow-hidden shadow-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredItems.map((item) => (
-            <div key={item.id} className="bg-white p-6 md:p-8 flex justify-between items-start gap-4 hover:bg-gray-50 transition-colors">
-              
-              {/* Left side: Icon + Content */}
-              <div className="flex gap-4 md:gap-5">
-                <div className="text-4xl pt-0.5 shrink-0 select-none">
+            <div
+              key={item.id}
+              className="group bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+            >
+              {/* Top row: Icon + Price */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-14 h-14 rounded-lg bg-[#FBF3ED] flex items-center justify-center text-2xl select-none">
                   {item.icon}
                 </div>
-                <div className="flex flex-col">
-                  <h3 className="text-brand-dark font-bold text-xl mb-1">{item.name}</h3>
-                  <p className="text-brand-gray-light text-sm leading-snug max-w-70 md:max-w-xs mb-3">
-                    {item.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-[#F6EFEA] text-[#A6581E] px-2.5 py-1 rounded text-xs font-semibold"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                <div className="text-right">
+                  <div
+                    className="text-brand-dark text-2xl font-semibold"
+                  >
+                    ${item.price}
+                  </div>
+                  <div className="text-brand-gray-light text-[10px] mt-0.5">
+                    {item.calories} kcal
                   </div>
                 </div>
               </div>
 
-              {/* Right side: Price + Calories */}
-              <div className="text-right shrink-0">
-                <div
-                  className="text-brand-dark text-xl font-medium"
-                  style={{ fontFamily: "var(--font-display), Georgia, serif" }}
-                >
-                  ${item.price}
-                </div>
-                <div className="text-brand-gray-light text-[10px] mt-1">
-                  {item.calories} kcal
-                </div>
-              </div>
+              {/* Name */}
+              <h3 className="text-brand-dark font-bold text-2xl mb-2 group-hover:text-brand-accent transition-colors">
+                {item.name}
+              </h3>
 
+              {/* Description */}
+              <p className="text-brand-gray-light text-sm leading-relaxed mb-4">
+                {item.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-[#F6EFEA] text-[#A6581E] px-2.5 py-1 rounded-full text-xs font-semibold"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

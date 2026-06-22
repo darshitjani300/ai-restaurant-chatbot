@@ -7,7 +7,7 @@ const Cta = () => {
         {/* Text Content */}
         <div>
           <h2
-            className="text-4xl md:text-5xl text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl text-white mb-4"
           >
             Ready for an evening to remember?
           </h2>
@@ -19,7 +19,7 @@ const Cta = () => {
         {/* CTA Button */}
         <a
           href="tel:+15125550191"
-          className="shrink-0 bg-white hover:bg-gray-50 text-[#92440C] font-semibold text-md px-8 py-4 rounded transition-colors shadow-sm"
+          className="shrink-0 w-full sm:w-auto text-center bg-white hover:bg-gray-50 text-[#92440C] font-semibold text-md px-8 py-4 rounded transition-colors shadow-sm"
         >
           Reserve your table
         </a>

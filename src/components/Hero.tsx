@@ -4,14 +4,14 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section id="hero" className="relative w-full bg-[#171411] overflow-hidden flex flex-col">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 grow">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 py-12 lg:py-18 grid grid-cols-1 lg:grid-cols-2 grow gap-8 lg:gap-16">
         {/* Left Column - Content */}
-        <div className="flex flex-col justify-center p-8 md:p-16 lg:px-24 lg:py-32 z-10">
+        <div className="flex flex-col justify-center z-10 py-12 lg:py-24">
           <div className="max-w-xl">
             <h4 className="text-[#5D6052] tracking-widest uppercase text-xs font-bold mb-6 lg:mb-8">
               Austin&apos;s Finest Italian
             </h4>
-            <h1 className="text-5xl lg:text-7xl text-white leading-13 lg:leading-16 mb-8">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl text-white leading-10 sm:leading-13 lg:leading-16 mb-8">
               Where every meal
               <br />
               becomes a <span className="italic font-medium">memory</span>
@@ -21,16 +21,16 @@ const Hero = () => {
               <br className="hidden md:block" />
               from the hillside estates of Tuscany and Piedmont.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#cta"
-                className="bg-[#0D0C0A] hover:bg-black text-white px-10 py-4 rounded font-semibold text-xs transition-colors"
+                className="bg-[#0D0C0A] hover:bg-black text-white px-6 sm:px-10 py-3 sm:py-4 rounded font-semibold text-xs transition-colors"
               >
                 Book a table
               </a>
               <a
                 href="#menu"
-                className="border border-brand-dark-hover hover:border-[#4A453A] text-brand-gray-light hover:text-white px-10 py-4 rounded font-semibold text-xs transition-colors"
+                className="border border-brand-dark-hover hover:border-[#4A453A] text-brand-gray-light hover:text-white px-6 sm:px-10 py-3 sm:py-4 rounded font-semibold text-xs transition-colors"
               >
                 View menu
               </a>
@@ -38,17 +38,16 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex flex-wrap items-center gap-12 md:gap-20 mt-12 pt-10 border-t border-brand-dark-hover max-w-lg">
+          <div className="flex flex-wrap items-center gap-8 sm:gap-12 md:gap-20 mt-12 pt-10 border-t border-brand-dark-hover max-w-lg">
             <div>
-              <div className="text-4xl text-white mb-1">14</div>
+              <div className="text-3xl sm:text-4xl text-white mb-1">14</div>
               <div className="text-xs uppercase tracking-widest text-brand-gray-light font-bold">
                 Years open
               </div>
             </div>
             <div>
               <div
-                className="text-4xl text-white flex items-center gap-1 mb-1"
-                style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                className="text-3xl sm:text-4xl text-white flex items-center gap-1 mb-1"
               >
                 4.9<span className="text-xl text-white pb-1">★</span>
               </div>
@@ -58,8 +57,7 @@ const Hero = () => {
             </div>
             <div>
               <div
-                className="text-4xl text-white mb-1"
-                style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                className="text-3xl sm:text-4xl text-white mb-1"
               >
                 38
               </div>
@@ -71,22 +69,23 @@ const Hero = () => {
         </div>
 
         {/* Right Column - Image & Overlay */}
-        <div className="relative hidden lg:block min-h-150 h-full">
+        <div className="relative hidden lg:block min-h-150 h-full rounded-lg overflow-hidden">
           {/* Main Hero Image */}
           <div className="absolute inset-0 w-full h-full">
             <Image
               src="/images/hero-food.png"
               alt="Delicious Italian Dish"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center"
               priority
             />
             {/* Gradient overlay to blend image into the dark left background */}
-            <div className="absolute inset-0 bg-linear-to-r from-[#171411] via-[#171411]/80 to-transparent w-3/5 z-10"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-[#171411] via-[#171411]/50 to-transparent w-full z-10"></div>
           </div>
 
           {/* Chef's Pick Card */}
-          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-full max-w-lg z-20 bg-[#1E1B17]/95 backdrop-blur-sm border border-white/5 p-8 rounded-lg shadow-2xl">
+          <div className="absolute bottom-8 xl:bottom-16 left-1/2 -translate-x-1/2 w-full max-w-md lg:max-w-lg z-20 bg-[#1E1B17]/95 backdrop-blur-sm border border-white/5 p-5 lg:p-8 rounded-lg shadow-2xl">
             <h5 className="text-[#5D6052] text-xs font-bold tracking-widest uppercase mb-4">
               Chef&apos;s Pick Tonight
             </h5>
@@ -102,7 +101,7 @@ const Hero = () => {
       {/* Bottom Info Strip */}
       <div className="w-full bg-[#B96727] border-t border-white/5">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 px-6 md:px-12 lg:px-24">
-          <div className="p-8 lg:px-12 flex items-center justify-start gap-5">
+          <div className="p-6 sm:p-8 lg:px-12 flex items-center justify-start gap-5 border-b border-white/10 md:border-b-0">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-white shadow-inner">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +127,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="p-8 lg:px-12 flex items-center justify-start gap-5 md:border-x md:border-white/10">
+          <div className="p-6 sm:p-8 lg:px-12 flex items-center justify-start gap-5 border-b border-white/10 md:border-b-0 md:border-x md:border-white/10">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-white shadow-inner">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +159,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="p-8 lg:px-12 flex items-center justify-start gap-5">
+          <div className="p-6 sm:p-8 lg:px-12 flex items-center justify-start gap-5">
             <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-white shadow-inner">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

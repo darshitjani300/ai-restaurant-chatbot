@@ -31,3 +31,12 @@ h3,
 .section-title {
   font-family: var(--font-display), Georgia, serif;
 }
+
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

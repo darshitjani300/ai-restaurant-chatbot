@@ -4,13 +4,14 @@ import Image from "next/image";
 const Story = () => {
   return (
     <section id="our-story" className="relative w-full bg-[#171411] overflow-hidden">
-      <div className="container mx-auto flex flex-col lg:flex-row">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 py-12 lg:py-18 flex flex-col lg:flex-row gap-8 lg:gap-16">
         {/* Left Column - Image */}
-        <div className="relative w-full lg:w-1/2 min-h-100">
+        <div className="relative w-full lg:w-1/2 min-h-[280px] sm:min-h-[350px] lg:min-h-[500px] rounded-lg overflow-hidden">
           <Image
             src="/images/chef-story.png"
             alt="Chef Luca Marchetti"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-center"
           />
           {/* Subtle gradient to blend into the right column on desktop */}
@@ -20,13 +21,13 @@ const Story = () => {
         </div>
 
         {/* Right Column - Content */}
-        <div className="w-full lg:w-1/2 flex items-center p-8 md:p-16 lg:p-20 xl:p-28 z-20">
+        <div className="w-full lg:w-1/2 flex items-center z-20">
           <div className="max-w-xl">
             <h4 className="text-[#B96727] tracking-widest uppercase text-xs font-bold mb-6">
               Our Story
             </h4>
             <h2
-              className="text-4xl md:text-5xl text-white leading-11 lg:leading-13 mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl text-white leading-snug lg:leading-13 mb-8"
             >
               Three generations.<br />
               One family recipe.
