@@ -3,8 +3,33 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
+// --- RATE LIMITER SETUP ---
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const MAX_REQUESTS = 5; 
+const WINDOW_MS = 60 * 1000;
+
 export async function POST(req: any) {
   try {
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const now = Date.now();
+
+    if (!rateLimitMap.has(ip)) {
+      rateLimitMap.set(ip, { count: 1, lastReset: now });
+    } else {
+      const rateData = rateLimitMap.get(ip)!;
+      if (now - rateData.lastReset > WINDOW_MS) {
+        rateLimitMap.set(ip, { count: 1, lastReset: now });
+      } else {
+        if (rateData.count >= MAX_REQUESTS) {
+          return Response.json(
+            { error: "Too many requests. Please wait a minute." }, 
+            { status: 429 } 
+          );
+        }
+        rateData.count += 1;
+      }
+    }
+
     const { messages } = await req.json();
 
     const model = genAI.getGenerativeModel({

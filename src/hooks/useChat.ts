@@ -26,6 +26,18 @@ export function useChat() {
         body: JSON.stringify({ messages: newMessage }),
       });
 
+      // Handle Rate Limits specifically
+      if (res.status === 429) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "You're sending messages a bit too quickly! Please wait a minute before messaging again. ⏳",
+          },
+        ]);
+        return;
+      }
+
       // 2. THE FIX: If the API returns a 503 High Demand (or any error), handle it smoothly!
       if (!res.ok) {
         setMessages((prev) => [
