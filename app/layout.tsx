@@ -3,6 +3,7 @@ import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/layout/Header";
 import Footer from "@/src/layout/Footer";
+import ChatWidget from "@/src/components/ChatWidget";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({
         <main className="min-h-screen bg-brand-bg flex flex-col">
           {children}
         </main>
+        <ChatWidget />
         <Footer />
       </body>
     </html>
